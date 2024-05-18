@@ -8,6 +8,20 @@ Each question has three multiple-choice options where only one is the correct an
 - `'options'`: Represents a list of choices for the question.
 - `'answer'`: Represents the correct choice among the options.
 
+Either OpenAI or Ollama models can be used.
+
+To use OpenAI, configure your `.env` file with your `TOKEN_OPENAI` token,
+and then call the application with the environment variable `AI_ENGINE=openai`.
+Otherwise, the application will default to using Ollama.
+
+To install Ollama
+
+```
+brew install ollama
+ollama serve
+ollama pull llama3:latest # In new terminal tab.
+```
+
 ### Usage
 
 #### Install
@@ -19,7 +33,10 @@ cp env.example env
 
 bundle install
 
-# Start the sinatra application with
+# Start the sinatra application with OpenAI
+AI_ENGINE=openai ruby app.rb
+
+# Start it with Ollama
 ruby app.rb
 ```
 
